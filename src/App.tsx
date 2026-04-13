@@ -10,10 +10,12 @@ import ContactSection from './components/ContactSection';
 import GenAISection from './components/GenAISection';
 import CurrentlyBuildingSection from './components/CurrentlyBuildingSection';
 import ScrollToTop from './components/ScrollToTop';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleXValue = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -82,10 +84,67 @@ function App() {
           <a href="#projects" className="hover:text-white transition-colors hover:scale-105 transform">Projects</a>
           <a href="#contact" className="hover:text-white transition-colors hover:scale-105 transform">Contact</a>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-gray-300 hover:text-white p-2"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
       </nav>
 
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence mode="wait">
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-slate-950 backdrop-blur-3xl md:hidden overflow-hidden"
+          >
+            {/* Close Button Header */}
+            <div className="absolute top-0 w-full p-6 flex justify-between items-center border-b border-white/5">
+              <div className="text-2xl font-bold tracking-tighter heading text-white">
+                AM<span className="text-indigo-500">.</span>
+              </div>
+              <button 
+                className="text-gray-300 hover:text-white p-2 bg-white/5 rounded-full cursor-pointer"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <X size={28} />
+              </button>
+            </div>
+
+            {/* Menu Links */}
+            <div className="flex flex-col gap-6 p-8 pt-32 h-full overflow-y-auto">
+              {[
+                { name: 'About', href: '#about' },
+                { name: 'Experience', href: '#experience' },
+                { name: 'Projects', href: '#projects' },
+                { name: 'Contact', href: '#contact' }
+              ].map((link, idx) => (
+                <motion.a 
+                  key={link.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + idx * 0.1 }}
+                  href={link.href} 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="text-4xl font-bold heading text-white hover:text-indigo-400 transition-colors"
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 md:px-12 pt-24 pb-24 space-y-40 relative z-10">
+      <main className="max-w-6xl mx-auto px-6 md:px-12 pt-24 pb-24 space-y-16 md:space-y-24 lg:space-y-32 relative z-10">
         <HeroSection />
         <AboutSection />
         <ExperienceSection />

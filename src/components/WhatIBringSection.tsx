@@ -42,7 +42,7 @@ export default function WhatIBringSection() {
             <span className="w-16 h-px bg-gradient-to-r from-transparent to-indigo-500"></span>
             Why Me?
           </h2>
-          <p className="text-xl text-indigo-300/80 font-light ml-22 md:ml-[5.5rem] tracking-wide">
+          <p className="text-xl text-indigo-300/80 font-light md:ml-[5.5rem] tracking-wide">
             What sets me apart as an engineer.
           </p>
         </div>

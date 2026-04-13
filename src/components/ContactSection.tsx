@@ -25,7 +25,7 @@ export default function ContactSection() {
             <Mail size={28} className="text-white" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-6xl font-black heading mb-4 tracking-tight text-white drop-shadow-lg">Let's Build Something Impactful 🚀</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black heading mb-4 tracking-tight text-white drop-shadow-lg leading-tight">Let's Build Something Impactful 🚀</h2>
 
           <div className="font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-6 py-2 rounded-full inline-block mb-8 text-xs md:text-sm">
             Open to Full Stack / Backend opportunities

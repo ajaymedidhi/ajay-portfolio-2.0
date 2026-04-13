@@ -91,10 +91,10 @@ export default function ProjectsSection() {
                   </div>
                 </div>
 
-                <h3 className="text-3xl font-bold heading mb-6 group-hover:text-indigo-300 transition-colors">{project.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-bold heading mb-6 group-hover:text-indigo-300 transition-colors">{project.title}</h3>
 
                 {/* Metrics Bar */}
-                <div className="flex gap-4 mb-8 pb-6 border-b border-white/5">
+                <div className="flex flex-wrap gap-4 mb-8 pb-6 border-b border-white/5">
                   {project.metrics.map((metric, i) => (
                     <div key={i} className="flex flex-col">
                       <div className="flex items-center gap-1.5 text-indigo-400 mb-1">

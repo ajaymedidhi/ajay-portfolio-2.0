@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { ChevronsDown, Download } from 'lucide-react';
-import { FaLinkedin, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaYoutube } from 'react-icons/fa';
 import myProfile from '../assets/myprofile.jpg';
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="min-h-[85vh] flex flex-col justify-center relative">
+    <section id="hero" className="min-h-[85vh] flex flex-col justify-center relative py-12 lg:py-0">
       <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24 w-full">
 
         {/* Left Content Area */}
@@ -15,8 +15,8 @@ export default function HeroSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left z-10"
         >
-          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-sm font-medium tracking-wide">
-            <span className="relative flex h-2 w-2 inline-flex mr-2 mt-1.5 float-left">
+          <div className="inline-flex items-center mb-6 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs md:text-sm font-medium tracking-wide mx-auto lg:mx-0 w-fit">
+            <span className="relative flex h-2 w-2 mr-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
             </span>
@@ -25,17 +25,16 @@ export default function HeroSection() {
 
           <h2 className="text-xl md:text-2xl text-gray-300 font-medium tracking-wide mb-4">Hello, I'm Ajay Medidhi.</h2>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black heading leading-[1.1] mb-8 text-white drop-shadow-2xl">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black heading leading-[1.2] lg:leading-[1.1] mb-8 text-white drop-shadow-2xl">
             Full Stack <br className="hidden lg:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 drop-shadow-lg leading-tight lg:leading-[1.1]">
               Engineer
             </span>
           </h1>
-
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-2xl mb-4 leading-relaxed font-light">
+          <p className="text-base md:text-lg lg:text-2xl text-gray-400 max-w-2xl mb-4 leading-relaxed font-light">
             Building scalable systems with Angular, Node.js & Google Cloud.
           </p>
-          <p className="text-base md:text-lg lg:text-xl text-indigo-200/60 max-w-2xl mb-12 leading-relaxed">
+          <p className="text-sm md:text-base lg:text-xl text-indigo-200/60 max-w-2xl mb-12 leading-relaxed">
             Optimizing performance, reliability & real-world impact.
           </p>
 

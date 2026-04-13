@@ -52,7 +52,7 @@ export default function SkillsSection() {
             <span className="w-16 h-px bg-gradient-to-r from-transparent to-indigo-500"></span>
             Technical Arsenal
           </h2>
-          <p className="text-xl text-indigo-300/80 font-light ml-22 md:ml-[5.5rem]">
+          <p className="text-xl text-indigo-300/80 font-light md:ml-[5.5rem]">
             Specialized in scalable frontend and high-performance backend systems.
           </p>
         </div>
