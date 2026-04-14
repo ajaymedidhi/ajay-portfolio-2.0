@@ -70,7 +70,18 @@ export default function HeroSection() {
           className="lg:w-2/5 flex justify-center lg:justify-end relative group w-full max-w-[280px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-none mx-auto lg:mx-0 z-10"
         >
           {/* Ambient Glow behind Image */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/30 rounded-[3rem] blur-[60px] group-hover:blur-[80px] group-hover:from-indigo-500/30 group-hover:to-purple-500/40 transition-all duration-700 -z-10 transform scale-110"></div>
+          <motion.div
+            animate={{
+              opacity: [0.5, 0.8, 0.5],
+              scale: [1.1, 1.2, 1.1],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute inset-0 bg-gradient-to-tr from-indigo-500/60 via-purple-500/60 to-pink-500/60 rounded-[3rem] blur-[50px] md:blur-[100px] -z-10"
+          />
 
           {/* Image Container */}
           <div className="relative aspect-square w-full rounded-[2.5rem] md:rounded-[3rem] p-3 border border-white/10 bg-white/[0.02] backdrop-blur-sm group-hover:border-indigo-500/30 group-hover:bg-white/[0.04] transition-all duration-500 shadow-2xl overflow-visible">
