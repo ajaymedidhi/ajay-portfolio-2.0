@@ -66,8 +66,11 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          whileTap={{ scale: 0.95 }}
+          whileTap="tap"
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          variants={{
+            tap: { scale: 0.98 }
+          }}
           className="lg:w-2/5 flex justify-center lg:justify-end relative group w-full max-w-[280px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-none mx-auto lg:mx-0 z-10 cursor-pointer"
         >
           {/* Ambient Glow behind Image */}
@@ -92,7 +95,7 @@ export default function HeroSection() {
             }}
             animate="animate"
             whileTap="tap"
-            className="absolute inset-0 bg-gradient-to-tr from-indigo-500/60 via-purple-500/60 to-pink-500/60 rounded-[3rem] blur-[20px] md:blur-[100px] -z-10 shadow-[0_0_30px_rgba(99,102,241,0.4)] md:shadow-none"
+            className="absolute inset-0 bg-gradient-to-tr from-indigo-500/60 via-purple-500/60 to-pink-500/60 rounded-[3rem] blur-[60px] md:blur-[100px] -z-10 shadow-[0_0_30px_rgba(99,102,241,0.4)] md:shadow-none"
           />
 
           {/* Image Container */}
