@@ -77,25 +77,25 @@ export default function HeroSection() {
           <motion.div
             variants={{
               animate: {
-                opacity: [0.5, 0.8, 0.5],
-                scale: [1.1, 1.2, 1.1],
+                opacity: [0.6, 0.9, 0.6],
+                scale: [1.1, 1.25, 1.1],
                 transition: {
-                  duration: 4,
+                  duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
               },
               tap: {
                 opacity: 1,
-                scale: 1.4,
+                scale: 1.5,
                 transition: {
-                  duration: 0.2,
+                  duration: 0.15,
                 }
               }
             }}
             animate="animate"
             whileTap="tap"
-            className="absolute inset-0 bg-gradient-to-tr from-indigo-500/60 via-purple-500/60 to-pink-500/60 rounded-[3rem] blur-[60px] md:blur-[100px] -z-10 shadow-[0_0_30px_rgba(99,102,241,0.4)] md:shadow-none"
+            className="absolute inset-0 bg-gradient-to-tr from-indigo-500/80 via-purple-500/80 to-pink-500/80 rounded-[3rem] blur-[60px] md:blur-[100px] -z-10 shadow-[0_0_40px_rgba(99,102,241,0.5)] md:shadow-none"
           />
 
           {/* Image Container */}
@@ -106,7 +106,10 @@ export default function HeroSection() {
               <img
                 src={myProfile}
                 alt="Ajay Medidhi"
-                className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out group-hover:scale-105"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                className="w-full h-full object-cover object-center grayscale-0 md:grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out group-hover:scale-105"
                 onError={(e) => {
                   /* Fallback to a solid gradient if github avatar fails to load */
                   (e.target as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRlMDBjMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBlMGIyZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=';
