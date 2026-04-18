@@ -107,7 +107,7 @@ export default function HeroSection() {
                 src={myProfile}
                 alt="Ajay Medidhi"
                 loading="eager"
-                fetchpriority="high"
+                fetchPriority="high"
                 decoding="async"
                 className="w-full h-full object-cover object-center grayscale-0 md:grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out group-hover:scale-105"
                 onError={(e) => {
