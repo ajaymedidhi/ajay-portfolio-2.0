@@ -70,7 +70,16 @@ export default function HeroSection() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-            }}>Engineer</span>
+            }}>Developer</span>
+            <span style={{
+              display: 'block',
+              fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+              marginTop: '0.8rem',
+              color: '#C8D6E5',
+              fontWeight: 700,
+            }}>
+              GCP <span style={{color: '#00D9C0'}}>·</span> Gen AI
+            </span>
           </h1>
 
           <p style={{
