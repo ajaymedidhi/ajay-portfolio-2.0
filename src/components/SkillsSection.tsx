@@ -12,17 +12,18 @@ export default function SkillsSection() {
       title: 'Frontend Architecture', accent: '#00D9C0',
       skills: [
         { name: 'Angular', level: 92, tag: 'Production · 1yr' },
-        { name: 'React', level: 88, tag: 'Production · 8mo' },
+        { name: 'React', level: 88, tag: 'Production · 2yr' },
         { name: 'Tailwind CSS', level: 90, tag: 'Advanced' },
-        { name: 'TypeScript', level: 85, tag: 'Advanced' },
+        { name: 'TypeScript', level: 85, tag: 'Intermediate' },
       ],
     },
     {
       title: 'Backend Engineering', accent: '#4A9EFF',
       skills: [
-        { name: 'Node.js', level: 88, tag: 'Production · 1yr' },
+        { name: 'Node.js', level: 88, tag: 'Production · 1.5yr' },
         { name: 'Express', level: 85, tag: 'Advanced' },
         { name: 'REST APIs', level: 92, tag: 'Advanced' },
+        { name: 'Python', level: 85, tag: 'Intermediate' },
       ],
     },
     {

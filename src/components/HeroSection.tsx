@@ -40,26 +40,7 @@ export default function HeroSection() {
         position: 'relative', zIndex: 1,
       }} className="hero-inner">
         <div className="hero-text" style={{ flex: '1.2 1 0', minWidth: 0 }}>
-          <div style={{ marginBottom: '1.75rem' }}>
-            <span style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
-              border: '1px solid rgba(0,217,192,0.2)',
-              background: 'rgba(0,217,192,0.05)',
-              color: 'rgba(0,217,192,0.9)',
-              padding: '0.45rem 1rem', borderRadius: '100px',
-              fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.03em',
-            }}>
-              <span style={{
-                width: '7px', height: '7px', borderRadius: '50%',
-                background: '#00D9C0', boxShadow: '0 0 8px rgba(0,217,192,0.8)',
-                display: 'inline-block', flexShrink: 0,
-                animation: 'pulse-dot 2s ease-in-out infinite',
-              }} />
-              Currently available for new opportunities
-            </span>
-          </div>
-
-          <div style={{ color: '#8899AA', fontSize: '1rem', fontWeight: 400, marginBottom: '0.75rem', letterSpacing: '0.01em' }}>
+          <div style={{ color: COLORS.textSecondary, fontSize: '1rem', fontWeight: 400, marginBottom: '0.75rem', letterSpacing: '0.01em' }}>
             Hello, I'm Ajay Medidhi.
           </div>
 
@@ -87,53 +68,41 @@ export default function HeroSection() {
             marginBottom: '1.2rem',
             letterSpacing: '0.02em',
           }}>
-            GCP <span style={{ color: '#8899AA' }}>·</span> Gen AI
+            GCP <span style={{ color: COLORS.textSecondary }}>·</span> Generative AI
           </div>
 
           <p style={{
             fontSize: '1.05rem', lineHeight: 1.75,
-            color: '#8899AA', maxWidth: '460px',
-            marginBottom: '1.5rem', marginTop: '-0.5rem', fontWeight: 400,
+            color: COLORS.textSecondary, maxWidth: '460px',
+            marginBottom: '2rem', marginTop: '-0.5rem', fontWeight: 400,
           }}>
-            Building scalable systems with Angular, Node.js & Google Cloud.
-            Optimizing performance, reliability & real-world impact.
+            Building scalable systems with Angular, Node.js & Google Cloud. Focused on performance, reliability, and real-world impact.
           </p>
 
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="cta-container" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
             <a href="/resume.pdf" download="Ajay_Medidhi_Resume.pdf" target="_blank" rel="noreferrer"
               className="cta-primary" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              background: '#00D9C0', color: '#080C10',
-              padding: '0.75rem 1.75rem', borderRadius: '8px',
-              fontWeight: 700, fontSize: '0.875rem', letterSpacing: '0.02em',
+              display: 'inline-flex', alignItems: 'center', justifyItems: 'center', gap: '0.6rem',
+              background: COLORS.accent, color: COLORS.bg,
+              padding: '0.85rem 2rem', borderRadius: '8px',
+              fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.02em',
               textDecoration: 'none', transition: 'all 0.2s',
+              boxShadow: `0 4px 14px ${COLORS.accent}40`,
             }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Resume
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Resume
             </a>
             <a href="https://linkedin.com/in/ajaymedidhi" target="_blank" rel="noreferrer"
               className="cta-secondary" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              background: 'rgba(255,255,255,0.04)', color: '#C8D6E5',
-              padding: '0.75rem 1.75rem', borderRadius: '8px',
-              fontWeight: 500, fontSize: '0.875rem', letterSpacing: '0.01em',
+              display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+              background: 'transparent', color: COLORS.textPrimary,
+              padding: '0.85rem 2rem', borderRadius: '8px',
+              fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.01em',
               textDecoration: 'none', transition: 'all 0.2s',
-              border: '1px solid rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.15)',
             }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
               LinkedIn
-            </a>
-            <a href="https://www.youtube.com/@ajayverse09" target="_blank" rel="noreferrer"
-              className="cta-secondary" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              background: 'rgba(255,255,255,0.04)', color: '#C8D6E5',
-              padding: '0.75rem 1.75rem', borderRadius: '8px',
-              fontWeight: 500, fontSize: '0.875rem', letterSpacing: '0.01em',
-              textDecoration: 'none', transition: 'all 0.2s',
-              border: '1px solid rgba(255,255,255,0.1)',
-            }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#080C10"/></svg>
-              AjayVerse
             </a>
           </div>
         </div>
@@ -180,12 +149,12 @@ export default function HeroSection() {
             </div>
             <div style={{
               position: 'absolute', bottom: '-1rem', right: '-1.25rem',
-              background: '#0E1420', border: '1px solid rgba(0,217,192,0.15)',
-              padding: '0.6rem 0.9rem', borderRadius: '8px', zIndex: 4,
-              backdropFilter: 'blur(8px)',
+              background: COLORS.surface, border: `1px solid ${COLORS.accent}40`,
+              padding: '0.7rem 1rem', borderRadius: '8px', zIndex: 4,
+              backdropFilter: 'blur(12px)', boxShadow: `0 8px 24px ${COLORS.accent}15`,
             }}>
-              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', color: 'rgba(0,217,192,0.7)', letterSpacing: '0.08em', marginBottom: '0.1rem' }}>IMPACT</div>
-              <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1rem', color: '#F0F4F8' }}>60% Perf ↑</div>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: COLORS.accent, letterSpacing: '0.08em', marginBottom: '0.2rem' }}>IMPACT</div>
+              <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: COLORS.textPrimary }}>+60% Performance</div>
             </div>
             <div style={{
               position: 'absolute', top: '-1rem', left: '-1rem',

@@ -91,12 +91,11 @@ main { display: flex; flex-direction: column; gap: 6rem; padding: 0 0 4rem; }
 .stat-row:hover { border-color: rgba(255,255,255,0.12) !important; }
 
 @media (max-width: 900px) {
-  .hero-inner { flex-direction: column-reverse !important; gap: 2.5rem !important; }
-  .hero-image { flex: 0 0 auto !important; width: 220px !important; margin: 0 auto; }
-  .hero-image > div { width: 220px !important; height: 260px !important; }
-  .hero-text { text-align: center; }
-  .hero-text > div:first-child { justify-content: center; display: flex; }
-  .hero-text > div:nth-child(4) { justify-content: center; display: flex; }
+  .hero-inner { flex-direction: column !important; gap: 3.5rem !important; padding-top: 1rem; }
+  .hero-image { flex: 0 0 auto !important; width: 280px !important; margin: 0 auto; }
+  .hero-image > div { width: 280px !important; height: 320px !important; }
+  .hero-text { text-align: left; }
+  .hero-text .cta-container { justify-content: flex-start !important; }
   .about-grid { grid-template-columns: 1fr !important; }
   .projects-grid { grid-template-columns: 1fr !important; }
   .genai-grid { grid-template-columns: 1fr !important; }
