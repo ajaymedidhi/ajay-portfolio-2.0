@@ -40,6 +40,25 @@ export default function HeroSection() {
         position: 'relative', zIndex: 1,
       }} className="hero-inner">
         <div className="hero-text" style={{ flex: '1.2 1 0', minWidth: 0 }}>
+          <div style={{ marginBottom: '1.75rem' }}>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+              border: '1px solid rgba(0,217,192,0.2)',
+              background: 'rgba(0,217,192,0.05)',
+              color: 'rgba(0,217,192,0.9)',
+              padding: '0.45rem 1rem', borderRadius: '100px',
+              fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.03em',
+            }}>
+              <span style={{
+                width: '7px', height: '7px', borderRadius: '50%',
+                background: '#00D9C0', boxShadow: '0 0 8px rgba(0,217,192,0.8)',
+                display: 'inline-block', flexShrink: 0,
+                animation: 'pulse-dot 2s ease-in-out infinite',
+              }} />
+              Currently available for new opportunities
+            </span>
+          </div>
+
           <div style={{ color: COLORS.textSecondary, fontSize: '1rem', fontWeight: 400, marginBottom: '0.75rem', letterSpacing: '0.01em' }}>
             Hello, I'm Ajay Medidhi.
           </div>
