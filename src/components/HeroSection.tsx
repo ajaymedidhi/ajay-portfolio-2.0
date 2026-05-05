@@ -60,7 +60,7 @@ export default function HeroSection() {
 
           <h1 style={{
             fontFamily: 'Syne, sans-serif', fontWeight: 800,
-            fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)',
+            fontSize: 'clamp(2.5rem, 5.5vw, 4.8rem)',
             lineHeight: 0.95, letterSpacing: '-0.04em',
             color: '#F0F4F8', margin: '0 0 0.6rem 0',
           }}>
