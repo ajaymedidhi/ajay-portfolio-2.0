@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { COLORS } from '../tokens';
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
@@ -14,11 +15,11 @@ export default function ContactSection() {
   return (
     <section id="contact" style={{ scrollMarginTop: '5rem' }}>
       <div style={{
-        background: '#0E1420', border: '1px solid rgba(255,255,255,0.06)',
+        background: COLORS.surface, border: '1px solid rgba(255,255,255,0.06)',
         borderRadius: '6px', padding: 'clamp(2.5rem, 6vw, 5rem)',
         position: 'relative', overflow: 'hidden', textAlign: 'center',
       }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, #00D9C0, transparent)' }} />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: `linear-gradient(90deg, transparent, ${COLORS.accent}, transparent)` }} />
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(0,217,192,0.3), transparent)' }} />
         <div style={{
           position: 'absolute', top: '-1rem', left: '-0.5rem',
@@ -35,12 +36,12 @@ export default function ContactSection() {
           <h2 style={{
             fontFamily: 'Syne, sans-serif', fontWeight: 800,
             fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            color: '#F0F4F8', lineHeight: 1.1,
+            color: COLORS.textPrimary, lineHeight: 1.1,
             letterSpacing: '-0.04em', margin: '0 0 1rem 0',
           }}>
             Let's build something<br /><span style={{ color: '#00D9C0' }}>impactful.</span>
           </h2>
-          <p style={{ color: '#8899AA', fontSize: '1rem', marginBottom: '3rem', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.02em' }}>
+          <p style={{ color: COLORS.textSecondary, fontSize: '1rem', marginBottom: '3rem', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.02em' }}>
             Open to Full Stack / Backend roles & collaborations.
           </p>
           <div style={{ marginBottom: '2.5rem' }}>
@@ -55,7 +56,7 @@ export default function ContactSection() {
               padding: '0.75rem 1.5rem', borderRadius: '4px',
             }} className="email-btn">
               {email}
-              <span style={{ fontSize: '0.7rem', color: copied ? '#00D9C0' : '#4A5568', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: '0.7rem', color: copied ? COLORS.accent : COLORS.textMuted, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                 {copied ? '✓ Copied' : 'Copy'}
               </span>
             </button>
@@ -66,7 +67,7 @@ export default function ContactSection() {
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}>
             <a href={`mailto:${email}`} style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              background: '#00D9C0', color: '#080C10',
+              background: COLORS.accent, color: COLORS.bg,
               padding: '0.85rem 2rem', borderRadius: '4px',
               fontWeight: 700, fontSize: '0.875rem', letterSpacing: '0.04em',
               textDecoration: 'none',

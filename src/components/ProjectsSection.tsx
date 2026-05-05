@@ -81,7 +81,7 @@ export default function ProjectsSection() {
               }}>{project.label}</span>
               <div style={{ display: 'flex', gap: '0.5rem' }}>
 
-                <a href={project.demo} target="_blank" rel="noreferrer" style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px', color: '#8899AA', textDecoration: 'none' }} className="icon-btn">
+                <a href={project.demo} target="_blank" rel="noreferrer" aria-label="View live demo" style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px', color: '#8899AA', textDecoration: 'none' }} className="icon-btn">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 </a>
               </div>

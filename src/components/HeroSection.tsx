@@ -1,14 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { COLORS } from '../tokens';
 
 export default function HeroSection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const rafRef = useRef(0);
 
   useEffect(() => {
     const handleMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window;
-      setMousePos({
-        x: (e.clientX / innerWidth - 0.5) * 10,
-        y: (e.clientY / innerHeight - 0.5) * 10,
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        setMousePos({
+          x: (e.clientX / innerWidth - 0.5) * 10,
+          y: (e.clientY / innerHeight - 0.5) * 10,
+        });
       });
     };
     window.addEventListener('mousemove', handleMove);
@@ -62,12 +67,12 @@ export default function HeroSection() {
             fontFamily: 'Syne, sans-serif', fontWeight: 800,
             fontSize: 'clamp(2.8rem, 6.5vw, 5.5rem)',
             lineHeight: 0.95, letterSpacing: '-0.04em',
-            color: '#F0F4F8', margin: '0 0 0.6rem 0',
+            color: COLORS.textPrimary, margin: '0 0 0.6rem 0',
             whiteSpace: 'nowrap'
           }}>
             Full Stack<br />
             <span style={{
-              background: 'linear-gradient(135deg, #00D9C0 0%, #4A9EFF 100%)',
+              background: `linear-gradient(135deg, ${COLORS.accent} 0%, ${COLORS.blue} 100%)`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
