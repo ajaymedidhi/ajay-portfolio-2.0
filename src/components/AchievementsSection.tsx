@@ -1,88 +1,63 @@
-import { motion } from 'framer-motion';
-import { TrendingUp } from 'lucide-react';
-import { FaGoogle, FaBuilding } from 'react-icons/fa';
+import SectionHeader from './SectionHeader';
 
 export default function AchievementsSection() {
-  const achievements = [
-    {
-      text: 'Google Associate Data Practitioner certified',
-      tag: 'Cloud & Data',
-      icon: <FaGoogle size={20} />,
-      highlight: false
-    },
-    {
-      text: 'Google Generative AI Leader certified',
-      tag: 'AI / Leadership',
-      icon: <FaGoogle size={20} />,
-      highlight: false
-    },
-    {
-      text: 'McKinsey Forward Fellow',
-      tag: 'Leadership',
-      icon: <FaBuilding size={20} />,
-      highlight: false
-    }
+  const certs = [
+    { text: 'Google Associate Data Practitioner certified', tag: 'Cloud & Data' },
+    { text: 'Google Generative AI Leader certified', tag: 'AI / Leadership' },
+    { text: 'McKinsey Forward Fellow', tag: 'Leadership' },
   ];
 
   return (
-    <section id="achievements" className="scroll-mt-32">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-4xl md:text-5xl font-bold heading mb-16 flex items-center gap-6">
-          <span className="w-16 h-px bg-gradient-to-r from-transparent to-indigo-500"></span>
-          Key Achievements
-        </h2>
-        
-        {/* Highlight Card */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="mb-6 relative group overflow-hidden rounded-3xl"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-700"></div>
-          <div className="glass p-8 md:p-10 border-indigo-500/30 relative flex flex-col md:flex-row items-center md:items-start justify-between gap-8 hover:-translate-y-1 transition-transform duration-500">
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-indigo-300 bg-indigo-500/20 px-3 py-1 rounded-full border border-indigo-500/30">Performance</span>
-                <span className="text-xs font-bold uppercase tracking-widest text-gray-400 bg-white/5 px-3 py-1 rounded-full">Accenture</span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold heading leading-tight mb-4 text-white">
-                Improved system performance by <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 font-black">60%</span> handling 40K+ records.
-              </h3>
-              <p className="text-gray-400 font-medium">Spearheaded the backend optimization utilizing BigQuery, significantly reducing processing overhead and increasing overall throughput for massive datasets.</p>
-            </div>
-            <div className="shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-full border-[6px] border-indigo-500/20 flex items-center justify-center bg-slate-900 shadow-inner group-hover:scale-110 transition-transform duration-500">
-              <TrendingUp size={48} className="text-indigo-400" />
-            </div>
+    <section id="achievements" style={{ scrollMarginTop: '5rem' }}>
+      <SectionHeader num="07" title="Key Achievements" />
+      <div style={{
+        background: '#0E1420',
+        border: '1px solid rgba(0,217,192,0.2)',
+        borderRadius: '6px', padding: '2.5rem',
+        marginBottom: '1.25rem',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        gap: '2rem', position: 'relative', overflow: 'hidden',
+      }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, #00D9C0, transparent)' }} />
+        <div style={{ flex: 1 }}>
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00D9C0', background: 'rgba(0,217,192,0.08)', border: '1px solid rgba(0,217,192,0.2)', padding: '0.2rem 0.6rem', borderRadius: '2px' }}>Performance</span>
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#4A5568', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', padding: '0.2rem 0.6rem', borderRadius: '2px' }}>Accenture</span>
           </div>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {achievements.map((achievement, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="glass p-8 rounded-3xl bg-white/[0.02] border-white/5 flex flex-col gap-5 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 group hover:-translate-y-2 hover:shadow-xl"
-            >
-              <div className="flex justify-between items-start">
-                <div className="p-4 bg-slate-900 rounded-2xl text-gray-400 border border-white/5 shadow-inner group-hover:text-white group-hover:border-white/20 transition-all duration-300">
-                  {achievement.icon}
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/5 group-hover:border-white/10">{achievement.tag}</span>
-              </div>
-              <p className="font-semibold text-lg text-white leading-tight">{achievement.text}</p>
-            </motion.div>
-          ))}
+          <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1.5rem', color: '#F0F4F8', lineHeight: 1.3, marginBottom: '0.75rem', letterSpacing: '-0.02em' }}>
+            Improved system performance by <span style={{ color: '#00D9C0' }}>60%</span> handling 40K+ records.
+          </h3>
+          <p style={{ color: '#8899AA', fontSize: '0.9rem', lineHeight: 1.7 }}>
+            Spearheaded backend optimization utilizing BigQuery, significantly reducing processing overhead and increasing overall throughput for massive datasets.
+          </p>
         </div>
-      </motion.div>
+        <div style={{
+          flexShrink: 0, width: '100px', height: '100px',
+          border: '1px solid rgba(0,217,192,0.2)', borderRadius: '4px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          flexDirection: 'column', background: 'rgba(0,217,192,0.04)',
+        }}>
+          <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '2rem', color: '#00D9C0', lineHeight: 1 }}>60%</div>
+          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.55rem', color: '#4A5568', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '0.25rem' }}>Perf Gain</div>
+        </div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="certs-grid">
+        {certs.map((c, i) => (
+          <div key={i} style={{
+            background: '#0E1420', border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: '6px', padding: '1.5rem',
+            display: 'flex', flexDirection: 'column', gap: '0.75rem',
+          }} className="cert-card">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div style={{ width: '32px', height: '32px', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8899AA" strokeWidth="1.8"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#4A5568', border: '1px solid rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '2px' }}>{c.tag}</span>
+            </div>
+            <p style={{ color: '#F0F4F8', fontWeight: 500, fontSize: '0.9rem', lineHeight: 1.5, margin: 0 }}>{c.text}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

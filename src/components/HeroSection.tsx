@@ -1,150 +1,200 @@
-import { motion } from 'framer-motion';
-import { ChevronsDown, Download } from 'lucide-react';
-import { FaLinkedin, FaYoutube } from 'react-icons/fa';
-import myProfile from '../assets/myprofile.jpg';
+import { useState, useEffect } from 'react';
 
 export default function HeroSection() {
-  return (
-    <section id="hero" className="min-h-[85vh] flex flex-col justify-center relative py-12 lg:py-0">
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24 w-full">
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-        {/* Left Content Area */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left z-10"
-        >
-          <div className="inline-flex items-center mb-6 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs md:text-sm font-medium tracking-wide mx-auto lg:mx-0 w-fit">
-            <span className="relative flex h-2 w-2 mr-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      setMousePos({
+        x: (e.clientX / innerWidth - 0.5) * 10,
+        y: (e.clientY / innerHeight - 0.5) * 10,
+      });
+    };
+    window.addEventListener('mousemove', handleMove);
+    return () => window.removeEventListener('mousemove', handleMove);
+  }, []);
+
+  return (
+    <section id="hero" data-screen-label="Hero" style={{
+      minHeight: '100vh',
+      display: 'flex', flexDirection: 'column', justifyContent: 'center',
+      paddingTop: '80px', paddingBottom: '1rem',
+      position: 'relative', overflow: 'hidden',
+    }}>
+      <div style={{
+        position: 'absolute', top: '10%', right: '-5%',
+        width: '500px', height: '500px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(0,217,192,0.07) 0%, transparent 70%)',
+        pointerEvents: 'none', zIndex: 0,
+      }} />
+
+      <div style={{
+        display: 'flex', flexDirection: 'row', alignItems: 'center',
+        justifyContent: 'space-between', gap: '4rem', width: '100%',
+        position: 'relative', zIndex: 1,
+      }} className="hero-inner">
+        <div className="hero-text" style={{ flex: '1 1 0', minWidth: 0 }}>
+          <div style={{ marginBottom: '1.75rem' }}>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+              border: '1px solid rgba(0,217,192,0.2)',
+              background: 'rgba(0,217,192,0.05)',
+              color: 'rgba(0,217,192,0.9)',
+              padding: '0.45rem 1rem', borderRadius: '100px',
+              fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.03em',
+            }}>
+              <span style={{
+                width: '7px', height: '7px', borderRadius: '50%',
+                background: '#00D9C0', boxShadow: '0 0 8px rgba(0,217,192,0.8)',
+                display: 'inline-block', flexShrink: 0,
+                animation: 'pulse-dot 2s ease-in-out infinite',
+              }} />
+              Currently available for new opportunities
             </span>
-            Currently available for new opportunities
           </div>
 
-          <h2 className="text-xl md:text-2xl text-gray-300 font-medium tracking-wide mb-4">Hello, I'm Ajay Medidhi.</h2>
+          <div style={{ color: '#8899AA', fontSize: '1rem', fontWeight: 400, marginBottom: '0.75rem', letterSpacing: '0.01em' }}>
+            Hello, I'm Ajay Medidhi.
+          </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black heading leading-[1.2] lg:leading-[1.1] mb-8 text-white drop-shadow-2xl">
-            Full Stack <br className="hidden lg:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 drop-shadow-lg leading-tight lg:leading-[1.1]">
-              Engineer
-            </span>
+          <h1 style={{
+            fontFamily: 'Syne, sans-serif', fontWeight: 800,
+            fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)',
+            lineHeight: 0.95, letterSpacing: '-0.04em',
+            color: '#F0F4F8', margin: '0 0 0.6rem 0',
+          }}>
+            Full Stack<br />
+            <span style={{
+              background: 'linear-gradient(135deg, #00D9C0 0%, #4A9EFF 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>Engineer</span>
           </h1>
-          <p className="text-base md:text-lg lg:text-2xl text-gray-400 max-w-2xl mb-4 leading-relaxed font-light">
+
+          <p style={{
+            fontSize: '1.05rem', lineHeight: 1.75,
+            color: '#8899AA', maxWidth: '460px',
+            marginBottom: '1.5rem', marginTop: '-0.5rem', fontWeight: 400,
+          }}>
             Building scalable systems with Angular, Node.js & Google Cloud.
-          </p>
-          <p className="text-sm md:text-base lg:text-xl text-indigo-200/60 max-w-2xl mb-12 leading-relaxed">
             Optimizing performance, reliability & real-world impact.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            {/* Primary Action */}
-            <a href="/resume.pdf" download="Ajay_Medidhi_Resume.pdf" target="_blank" rel="noreferrer" aria-label="Download Resume" className="group flex items-center gap-3 bg-indigo-500 text-white rounded-full h-12 md:h-14 px-6 md:px-8 hover:-translate-y-1 transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.4)] hover:shadow-[0_0_25px_rgba(99,102,241,0.6)]">
-              <Download strokeWidth={2.5} className="w-5 h-5 md:w-6 md:h-6 shrink-0 group-hover:-translate-y-0.5 transition-transform" />
-              <span className="font-bold tracking-wide text-sm md:text-base">Resume</span>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <a href="/resume.pdf" download="Ajay_Medidhi_Resume.pdf" target="_blank" rel="noreferrer"
+              className="cta-primary" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              background: '#00D9C0', color: '#080C10',
+              padding: '0.75rem 1.75rem', borderRadius: '8px',
+              fontWeight: 700, fontSize: '0.875rem', letterSpacing: '0.02em',
+              textDecoration: 'none', transition: 'all 0.2s',
+            }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Resume
             </a>
-
-            <a href="https://linkedin.com/in/ajaymedidhi" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="group flex items-center gap-3 bg-white text-slate-950 rounded-full h-12 md:h-14 px-6 md:px-8 hover:-translate-y-1 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]">
-              <FaLinkedin className="text-[#0A66C2] text-xl md:text-2xl shrink-0" />
-              <span className="font-bold tracking-wide text-sm md:text-base">Connect</span>
+            <a href="https://linkedin.com/in/ajaymedidhi" target="_blank" rel="noreferrer"
+              className="cta-secondary" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              background: 'rgba(255,255,255,0.04)', color: '#C8D6E5',
+              padding: '0.75rem 1.75rem', borderRadius: '8px',
+              fontWeight: 500, fontSize: '0.875rem', letterSpacing: '0.01em',
+              textDecoration: 'none', transition: 'all 0.2s',
+              border: '1px solid rgba(255,255,255,0.1)',
+            }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
             </a>
-
-            <a href="https://www.youtube.com/@ajayverse09" target="_blank" rel="noreferrer" aria-label="YouTube" className="group flex items-center gap-3 bg-white text-slate-950 rounded-full h-12 md:h-14 px-6 md:px-8 hover:-translate-y-1 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]">
-              <FaYoutube className="text-[#FF0000] text-xl md:text-2xl shrink-0" />
-              <span className="font-bold tracking-wide text-sm md:text-base">Subscribe</span>
+            <a href="https://www.youtube.com/@ajayverse09" target="_blank" rel="noreferrer"
+              className="cta-secondary" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              background: 'rgba(255,255,255,0.04)', color: '#C8D6E5',
+              padding: '0.75rem 1.75rem', borderRadius: '8px',
+              fontWeight: 500, fontSize: '0.875rem', letterSpacing: '0.01em',
+              textDecoration: 'none', transition: 'all 0.2s',
+              border: '1px solid rgba(255,255,255,0.1)',
+            }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#080C10"/></svg>
+              AjayVerse
             </a>
-
-            {/* <a href="#" target="_blank" rel="noreferrer" aria-label="Instagram" className="group flex items-center gap-3 bg-white text-slate-950 rounded-full h-12 md:h-14 px-6 md:px-8 hover:-translate-y-1 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]">
-              <FaInstagram className="text-[#E1306C] text-xl md:text-2xl shrink-0" />
-              <span className="font-bold tracking-wide text-sm md:text-base">Follow</span>
-            </a> */}
           </div>
-        </motion.div>
+        </div>
 
-        {/* Right Image Area */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          whileTap="tap"
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          variants={{
-            tap: { scale: 0.98 }
-          }}
-          className="lg:w-2/5 flex justify-center lg:justify-end relative group w-full max-w-[280px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-none mx-auto lg:mx-0 z-10 cursor-pointer"
-        >
-          {/* Ambient Glow behind Image */}
-          <motion.div
-            variants={{
-              animate: {
-                opacity: [0.6, 0.9, 0.6],
-                scale: [1.1, 1.25, 1.1],
-                transition: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }
-              },
-              tap: {
-                opacity: 1,
-                scale: 1.5,
-                transition: {
-                  duration: 0.15,
-                }
-              }
-            }}
-            animate="animate"
-            whileTap="tap"
-            className="absolute inset-0 bg-gradient-to-tr from-indigo-500/80 via-purple-500/80 to-pink-500/80 rounded-[3rem] blur-[60px] md:blur-[100px] -z-10 shadow-[0_0_40px_rgba(99,102,241,0.5)] md:shadow-none"
-          />
-
-          {/* Image Container */}
-          <div className="relative aspect-square w-full rounded-[2.5rem] md:rounded-[3rem] p-3 border border-white/10 bg-white/[0.02] backdrop-blur-sm group-hover:border-indigo-500/30 group-hover:bg-white/[0.04] transition-all duration-500 shadow-2xl overflow-visible">
-
-            {/* The Image Itself */}
-            <div className="w-full h-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative">
+        <div className="hero-image" style={{
+          flex: '0 0 320px', display: 'flex', justifyContent: 'center', alignItems: 'center',
+          position: 'relative',
+        }}>
+          <div style={{ position: 'relative', width: '290px', height: '340px' }}>
+            <div style={{
+              position: 'absolute', inset: '-20px',
+              background: 'radial-gradient(ellipse at center, rgba(0,217,192,0.12) 0%, transparent 70%)',
+              zIndex: 0, borderRadius: '50%',
+            }} />
+            <div style={{ position: 'absolute', top: '-10px', left: '-10px', width: '28px', height: '28px', borderTop: '1.5px solid rgba(0,217,192,0.6)', borderLeft: '1.5px solid rgba(0,217,192,0.6)', zIndex: 3 }} />
+            <div style={{ position: 'absolute', top: '-10px', right: '-10px', width: '28px', height: '28px', borderTop: '1.5px solid rgba(0,217,192,0.6)', borderRight: '1.5px solid rgba(0,217,192,0.6)', zIndex: 3 }} />
+            <div style={{ position: 'absolute', bottom: '-10px', left: '-10px', width: '28px', height: '28px', borderBottom: '1.5px solid rgba(0,217,192,0.6)', borderLeft: '1.5px solid rgba(0,217,192,0.6)', zIndex: 3 }} />
+            <div style={{ position: 'absolute', bottom: '-10px', right: '-10px', width: '28px', height: '28px', borderBottom: '1.5px solid rgba(0,217,192,0.6)', borderRight: '1.5px solid rgba(0,217,192,0.6)', zIndex: 3 }} />
+            <div style={{
+              width: '100%', height: '100%', overflow: 'hidden',
+              borderRadius: '4px', border: '1px solid rgba(255,255,255,0.07)',
+              position: 'relative', zIndex: 1,
+              transform: `translate(${mousePos.x * 0.35}px, ${mousePos.y * 0.35}px)`,
+              transition: 'transform 0.18s ease-out',
+            }}>
               <img
-                src={myProfile}
+                src="/myprofile.jpg"
                 alt="Ajay Medidhi"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="w-full h-full object-cover object-center grayscale-0 md:grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out group-hover:scale-105"
-                onError={(e) => {
-                  /* Fallback to a solid gradient if github avatar fails to load */
-                  (e.target as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRlMDBjMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBlMGIyZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=';
+                style={{
+                  width: '100%', height: '100%',
+                  objectFit: 'cover', objectPosition: 'center top',
+                  display: 'block',
+                  filter: 'grayscale(15%) brightness(0.95)',
+                  transition: 'filter 0.4s',
                 }}
+                onMouseEnter={e => (e.currentTarget.style.filter = 'grayscale(0%) brightness(1)')}
+                onMouseLeave={e => (e.currentTarget.style.filter = 'grayscale(15%) brightness(0.95)')}
               />
-              {/* Overlay color tint that fades on hover */}
-              <div className="absolute inset-0 bg-indigo-900/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700 pointer-events-none"></div>
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(180deg, transparent 60%, rgba(8,12,16,0.5) 100%)',
+                pointerEvents: 'none',
+              }} />
             </div>
-
-            {/* Decorative orbit dots */}
-            <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-purple-500 animate-pulse hidden md:block"></div>
-            <div className="absolute bottom-12 -left-6 w-4 h-4 rounded-full bg-indigo-400 animate-bounce hidden md:block z-0"></div>
-
+            <div style={{
+              position: 'absolute', bottom: '-1rem', right: '-1.25rem',
+              background: '#0E1420', border: '1px solid rgba(0,217,192,0.15)',
+              padding: '0.6rem 0.9rem', borderRadius: '8px', zIndex: 4,
+              backdropFilter: 'blur(8px)',
+            }}>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', color: 'rgba(0,217,192,0.7)', letterSpacing: '0.08em', marginBottom: '0.1rem' }}>IMPACT</div>
+              <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1rem', color: '#F0F4F8' }}>60% Perf ↑</div>
+            </div>
+            <div style={{
+              position: 'absolute', top: '-1rem', left: '-1rem',
+              background: '#0E1420', border: '1px solid rgba(255,255,255,0.07)',
+              padding: '0.4rem 0.75rem', borderRadius: '6px', zIndex: 4,
+            }}>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', color: '#8899AA', letterSpacing: '0.06em' }}>@ Accenture</div>
+            </div>
           </div>
-        </motion.div>
-
+        </div>
       </div>
 
-      {/* Down Arrow Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute -bottom-16 md:-bottom-24 left-1/2 -translate-x-1/2 flex items-center justify-center hidden md:flex"
-      >
-        <a href="#about" aria-label="Scroll down" className="text-gray-500 hover:text-indigo-400 transition-colors">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
-            <ChevronsDown size={64} strokeWidth={2.5} />
-          </motion.div>
-        </a>
-      </motion.div>
-
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: '0.6rem',
+        marginTop: '2rem', position: 'relative', zIndex: 1,
+      }}>
+        <div style={{
+          width: '1px', height: '32px',
+          background: 'linear-gradient(to bottom, rgba(0,217,192,0.6), transparent)',
+          flexShrink: 0,
+        }} />
+        <div style={{
+          fontSize: '0.58rem', fontFamily: 'JetBrains Mono, monospace',
+          letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4A5568',
+        }}>scroll to explore</div>
+      </div>
     </section>
   );
 }

@@ -1,61 +1,94 @@
-import { motion } from 'framer-motion';
-import { Mail, ArrowRight } from 'lucide-react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { useState } from 'react';
 
 export default function ContactSection() {
+  const [copied, setCopied] = useState(false);
+  const email = 'ajaymedidhi858@gmail.com';
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   return (
-    <section id="contact" className="scroll-mt-32 relative">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center relative z-10"
-      >
-        <div className="glass max-w-4xl mx-auto p-8 md:p-12 rounded-[3rem] bg-gradient-to-b from-indigo-900/20 to-slate-900/80 border-white/10 relative overflow-hidden group hover:shadow-[0_0_50px_rgba(99,102,241,0.15)] transition-all duration-700">
-
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 group-hover:bg-purple-500/30 group-hover:scale-125 transition-all duration-1000"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 group-hover:bg-indigo-500/30 group-hover:scale-125 transition-all duration-1000"></div>
-
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.5)] border border-white/20"
-          >
-            <Mail size={28} className="text-white" />
-          </motion.div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black heading mb-4 tracking-tight text-white drop-shadow-lg leading-tight">Let's Build Something Impactful 🚀</h2>
-
-          <div className="font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-6 py-2 rounded-full inline-block mb-8 text-xs md:text-sm">
-            Open to Full Stack / Backend opportunities
+    <section id="contact" style={{ scrollMarginTop: '5rem' }}>
+      <div style={{
+        background: '#0E1420', border: '1px solid rgba(255,255,255,0.06)',
+        borderRadius: '6px', padding: 'clamp(2.5rem, 6vw, 5rem)',
+        position: 'relative', overflow: 'hidden', textAlign: 'center',
+      }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, #00D9C0, transparent)' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(0,217,192,0.3), transparent)' }} />
+        <div style={{
+          position: 'absolute', top: '-1rem', left: '-0.5rem',
+          fontFamily: 'Syne, sans-serif', fontWeight: 800,
+          fontSize: 'clamp(6rem, 14vw, 12rem)',
+          color: 'rgba(255,255,255,0.025)',
+          lineHeight: 1, userSelect: 'none', pointerEvents: 'none',
+          letterSpacing: '-0.06em',
+        }}>09</div>
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', color: '#00D9C0', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
+            09 —— Open to opportunities
           </div>
-
-          <div className="mb-10">
-            <a href="mailto:ajaymedidhi858@gmail.com" className="group/btn inline-flex items-center gap-3 bg-white text-slate-950 hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-base transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] hover:-translate-y-1">
-              Let's Connect
-              <ArrowRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />
-            </a>
-            <p className="mt-4 text-gray-400 font-medium text-base font-mono">ajaymedidhi858@gmail.com</p>
+          <h2 style={{
+            fontFamily: 'Syne, sans-serif', fontWeight: 800,
+            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+            color: '#F0F4F8', lineHeight: 1.1,
+            letterSpacing: '-0.04em', margin: '0 0 1rem 0',
+          }}>
+            Let's build something<br /><span style={{ color: '#00D9C0' }}>impactful.</span>
+          </h2>
+          <p style={{ color: '#8899AA', fontSize: '1rem', marginBottom: '3rem', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.02em' }}>
+            Open to Full Stack / Backend roles & collaborations.
+          </p>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <button onClick={handleCopy} style={{
+              background: 'none', border: '1px solid rgba(255,255,255,0.08)',
+              cursor: 'pointer',
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+              color: copied ? '#00D9C0' : '#F0F4F8',
+              letterSpacing: '-0.01em',
+              display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
+              padding: '0.75rem 1.5rem', borderRadius: '4px',
+            }} className="email-btn">
+              {email}
+              <span style={{ fontSize: '0.7rem', color: copied ? '#00D9C0' : '#4A5568', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                {copied ? '✓ Copied' : 'Copy'}
+              </span>
+            </button>
+            <div style={{ marginTop: '0.5rem', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#4A5568', letterSpacing: '0.06em' }}>
+              click to copy
+            </div>
           </div>
-
-          <div className="flex justify-center gap-6 border-t border-white/10 pt-8">
-            <a href="https://linkedin.com/in/ajaymedidhi" target="_blank" rel="noreferrer" className="group/icon p-5 bg-slate-900 border border-white/5 hover:border-indigo-500/50 hover:bg-indigo-500/20 rounded-2xl text-gray-400 hover:text-white transition-all hover:-translate-y-2 hover:shadow-[0_10px_20px_-10px_rgba(99,102,241,0.5)]">
-              <FaLinkedin size={28} className="group-hover/icon:scale-110 transition-transform" />
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}>
+            <a href={`mailto:${email}`} style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              background: '#00D9C0', color: '#080C10',
+              padding: '0.85rem 2rem', borderRadius: '4px',
+              fontWeight: 700, fontSize: '0.875rem', letterSpacing: '0.04em',
+              textDecoration: 'none',
+            }} className="cta-primary">
+              Send an Email →
             </a>
-            <a href="https://github.com/ajaymedidhi" target="_blank" rel="noreferrer" className="group/icon p-5 bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:bg-purple-500/20 rounded-2xl text-gray-400 hover:text-white transition-all hover:-translate-y-2 hover:shadow-[0_10px_20px_-10px_rgba(168,85,247,0.5)]">
-              <FaGithub size={28} className="group-hover/icon:scale-110 transition-transform" />
-            </a>
-            <a href="mailto:ajaymedidhi858@gmail.com" className="group/icon p-5 bg-slate-900 border border-white/5 hover:border-pink-500/50 hover:bg-pink-500/20 rounded-2xl text-gray-400 hover:text-white transition-all hover:-translate-y-2 hover:shadow-[0_10px_20px_-10px_rgba(236,72,153,0.5)]">
-              <Mail size={28} className="group-hover/icon:scale-110 transition-transform" />
+            <a href="https://linkedin.com/in/ajaymedidhi" target="_blank" rel="noreferrer" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              background: 'transparent', color: '#F0F4F8',
+              padding: '0.85rem 2rem', borderRadius: '4px',
+              fontWeight: 600, fontSize: '0.875rem', letterSpacing: '0.04em',
+              textDecoration: 'none', border: '1px solid rgba(255,255,255,0.12)',
+            }} className="cta-secondary">
+              LinkedIn
             </a>
           </div>
         </div>
-      </motion.div>
-
-      <div className="text-center mt-20">
-        <p className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-2">Designed and Engineered by Ajay Medidhi ❤️</p>
-        <p className="text-xs text-gray-700">Built with React, Tailwind v4, and Framer Motion.</p>
+      </div>
+      <div style={{ textAlign: 'center', marginTop: '3rem', paddingBottom: '2rem' }}>
+        <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#4A5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          Designed & engineered by Ajay Medidhi — Built with React, Tailwind v4, Framer Motion.
+        </p>
       </div>
     </section>
   );

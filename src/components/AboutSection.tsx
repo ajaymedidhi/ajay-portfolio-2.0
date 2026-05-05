@@ -1,77 +1,78 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 export default function AboutSection() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+  const [expanded, setExpanded] = useState(false);
   const paragraphs = [
-    "I’m Ajay Medidhi, a Full Stack Engineer at Accenture, where I work on building scalable, high-performance systems. My work focuses on transforming complex business requirements into efficient, production-ready solutions using Angular, Node.js, and Google Cloud.",
-    "My engineering background is not a past chapter—it’s my edge. The same principles of precision, system thinking, and problem-solving that govern flight now guide how I design reliable and scalable software systems.",
-    "During my time at Proptelligence, I discovered my passion for building end-to-end products—combining clean architecture with seamless user experiences. That experience shaped my approach: think deeply, build efficiently, and deliver impact.",
-    "Beyond work, I actively explore AI and data-driven systems, constantly pushing myself to stay ahead in a rapidly evolving tech landscape. I believe great engineering is about clarity, curiosity, and execution."
+    "I'm Ajay Medidhi, a Full Stack Engineer at Accenture, where I work on building scalable, high-performance systems. My work focuses on transforming complex business requirements into efficient, production-ready solutions using Angular, Node.js, and Google Cloud.",
+    "My engineering background is not a past chapter — it's my edge. The same principles of precision, system thinking, and problem-solving that govern flight now guide how I design reliable and scalable software systems.",
+    "During my time at Proptelligence, I discovered my passion for building end-to-end products — combining clean architecture with seamless user experiences. That experience shaped my approach: think deeply, build efficiently, and deliver impact.",
+    "Beyond work, I actively explore AI and data-driven systems, constantly pushing myself to stay ahead in a rapidly evolving tech landscape. I believe great engineering is about clarity, curiosity, and execution.",
   ];
 
   return (
-    <section id="about" className="scroll-mt-32">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-4xl md:text-5xl font-bold heading mb-16 flex flex-col md:flex-row md:items-center gap-6">
-          <span className="w-16 h-px bg-gradient-to-r from-transparent to-indigo-500 hidden md:block"></span>
-          About Me
-        </h2>
-
-        <div className="glass p-8 md:p-10 rounded-3xl bg-white/[0.02] border border-white/5 relative overflow-hidden group max-w-4xl">
-          {/* Main Short Paragraph (Reverted Content) */}
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-medium">
-            Results-driven Full Stack Developer with experience building high-performance applications using <span className="text-white font-bold">Angular, Node.js, and Google Cloud</span>. Skilled in backend optimization, large-scale reporting, and production systems. I am passionate about creating technical solutions that drive real-world impact and reliability at scale.
+    <section id="about" style={{ scrollMarginTop: '5rem' }}>
+      <SectionHeader num="01" title="About Me" />
+      <div style={{
+        display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem',
+        alignItems: 'start',
+      }} className="about-grid">
+        <div>
+          <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#C8D6E5', fontWeight: 400, marginBottom: '1.5rem' }}>
+            Results-driven Full Stack Developer building high-performance applications with{' '}
+            <strong style={{ color: '#F0F4F8', fontWeight: 600 }}>Angular, Node.js, and Google Cloud</strong>. Passionate about creating technical solutions that drive real-world impact and reliability at scale.
           </p>
-
-          <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-8 flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-bold transition-colors uppercase tracking-widest text-xs"
+          <button
+            onClick={() => setExpanded(!expanded)}
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              color: '#00D9C0', fontFamily: 'DM Sans, sans-serif',
+              fontSize: '0.875rem', fontWeight: 500,
+              display: 'flex', alignItems: 'center', gap: '0.5rem',
+              padding: 0, marginBottom: '1.5rem',
+            }}
           >
-            {isExpanded ? 'Hide Full Journey' : 'Read Full Journey: From Aircraft to Algorithms 🚀'}
-            {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            {expanded ? '↑ Collapse' : '↓ Read Full Journey: From Aircraft to Algorithms'}
           </button>
-
-          {/* Expandable Story Section */}
-          <AnimatePresence>
-            {isExpanded && (
-              <motion.div
-                initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                animate={{ opacity: 1, height: 'auto', marginTop: 32 }}
-                exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <div className="pt-8 border-t border-white/5 relative z-10 flex flex-col md:flex-row gap-10">
-                  {/* Left Column Statement */}
-                  <div className="md:w-1/3 shrink-0">
-                    <h3 className="text-xl md:text-2xl font-bold leading-snug text-indigo-100 heading mb-6">
-                      My journey from <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">aeronautical engineering</span> to software development reflects my drive to build, optimize, and innovate across domains.
-                    </h3>
-                    <div className="w-12 h-1 bg-indigo-500/50 rounded-full"></div>
-                  </div>
-
-                  {/* Right Column Body */}
-                  <div className="md:w-2/3 space-y-5">
-                    {paragraphs.map((para, index) => (
-                      <p key={index} className="text-base text-gray-400 leading-relaxed font-medium">
-                        {para}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div style={{
+            maxHeight: expanded ? '800px' : '0',
+            overflow: 'hidden',
+            transition: 'max-height 0.5s cubic-bezier(0.4,0,0.2,1)',
+          }}>
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.5rem' }}>
+              {paragraphs.map((p, i) => (
+                <p key={i} style={{
+                  color: '#8899AA', lineHeight: 1.75, marginBottom: '1rem',
+                  fontSize: '0.95rem', fontWeight: 400,
+                }}>{p}</p>
+              ))}
+            </div>
+          </div>
         </div>
-      </motion.div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {[
+            { label: 'Current Role', value: 'Associate Software Developer', sub: 'Accenture, Hyderabad' },
+            { label: 'Building', value: 'SkillSeed', sub: 'Ed-tech startup for students' },
+            { label: 'Creating', value: 'AjayVerse', sub: 'YouTube channel — building in public' },
+            { label: 'Background', value: 'Aeronautical Engineering', sub: 'Precision & system thinking' },
+          ].map((item, i) => (
+            <div key={i} style={{
+              padding: '1rem 1.25rem',
+              background: '#0E1420',
+              border: '1px solid rgba(255,255,255,0.06)',
+              borderRadius: '4px',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+              gap: '1rem',
+            }} className="stat-row">
+              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#4A5568', letterSpacing: '0.1em', textTransform: 'uppercase', flexShrink: 0 }}>{item.label}</span>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ color: '#F0F4F8', fontWeight: 600, fontSize: '0.9rem', fontFamily: 'Syne, sans-serif' }}>{item.value}</div>
+                <div style={{ color: '#4A5568', fontSize: '0.75rem' }}>{item.sub}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

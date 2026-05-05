@@ -1,79 +1,66 @@
-import { motion } from 'framer-motion';
-import { Zap, Server, ShieldCheck, Database } from 'lucide-react';
+import type { ReactNode } from 'react';
+import SectionHeader from './SectionHeader';
+
+interface Offering {
+  title: string;
+  metric: string;
+  body: string;
+  icon: ReactNode;
+}
 
 export default function WhatIBringSection() {
-  const offerings = [
+  const offerings: Offering[] = [
     {
-      title: 'Performance Optimization',
-      metrics: '60% Improvements',
-      description: 'Proven track record of drastically improving system performance utilizing advanced data ingestion pipelines and optimized queries.',
-      icon: <Zap size={28} />
+      title: 'Performance Optimization', metric: '60% Improvements',
+      body: 'Proven track record of drastically improving system performance utilizing advanced data ingestion pipelines and optimized queries.',
+      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
     },
     {
-      title: 'Scalable System Design',
-      metrics: 'High Concurrency',
-      description: 'Architecting robust, fault-tolerant solutions capable of handling massive scale and traffic seamlessly in production.',
-      icon: <Server size={28} />
+      title: 'Scalable System Design', metric: 'High Concurrency',
+      body: 'Architecting robust, fault-tolerant solutions capable of handling massive scale and traffic seamlessly in production.',
+      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>,
     },
     {
-      title: 'Production-Grade Reliability',
-      metrics: '99.9% Uptime',
-      description: 'Battle-tested experience in resolving critical, high-priority production issues across complex microservice environments.',
-      icon: <ShieldCheck size={28} />
+      title: 'Production-Grade Reliability', metric: '99.9% Uptime',
+      body: 'Battle-tested experience resolving critical, high-priority production issues across complex microservice environments.',
+      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
     },
     {
-      title: 'Cloud & Data Engineering',
-      metrics: 'GCP & BigQuery',
-      description: 'Deep technical mindset for analyzing massive data streams, relying on enterprise cloud technologies to drive data decisions.',
-      icon: <Database size={28} />
-    }
+      title: 'Cloud & Data Engineering', metric: 'GCP & BigQuery',
+      body: 'Deep technical mindset for analyzing massive data streams, relying on enterprise cloud technologies to drive data decisions.',
+      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>,
+    },
   ];
 
   return (
-    <section id="what-i-bring" className="scroll-mt-32">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold heading mb-4 flex items-center gap-6">
-            <span className="w-16 h-px bg-gradient-to-r from-transparent to-indigo-500"></span>
-            Why Me?
-          </h2>
-          <p className="text-xl text-indigo-300/80 font-light md:ml-[5.5rem] tracking-wide">
-            What sets me apart as an engineer.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {offerings.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="glass p-8 md:p-10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] border-white/5 hover:border-indigo-500/30 relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_20px_40px_-20px_rgba(99,102,241,0.2)]"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-[50px] transform translate-x-12 -translate-y-12 group-hover:scale-150 group-hover:bg-indigo-500/20 transition-all duration-700 pointer-events-none"></div>
-              
-              <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-6 mb-6">
-                <div className="text-indigo-400 inline-flex p-4 bg-slate-900 shadow-inner rounded-2xl border border-indigo-500/20 group-hover:border-indigo-400/40 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all duration-300">
-                  {item.icon}
-                </div>
-                <span className="text-xs font-black uppercase tracking-widest text-indigo-300 bg-indigo-500/10 px-4 py-2 rounded-full border border-indigo-500/20 shadow-sm self-start whitespace-nowrap">
-                  {item.metrics}
-                </span>
-              </div>
-              
-              <h3 className="text-2xl font-bold heading mb-3 tracking-wide text-white group-hover:text-indigo-200 transition-colors">{item.title}</h3>
-              <p className="text-gray-400 leading-relaxed text-base md:text-lg group-hover:text-gray-300 transition-colors font-medium">{item.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+    <section id="what-i-bring" style={{ scrollMarginTop: '5rem' }}>
+      <SectionHeader num="08" title="Why Me?" subtitle="What sets me apart as an engineer." />
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }} className="bring-grid">
+        {offerings.map((item, i) => (
+          <div key={i} style={{
+            background: '#0E1420', border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: '6px', padding: '2rem',
+          }} className="bring-card">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
+              <div style={{
+                width: '44px', height: '44px',
+                border: '1px solid rgba(0,217,192,0.2)', borderRadius: '8px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: '#00D9C0', background: 'rgba(0,217,192,0.05)', flexShrink: 0,
+              }}>{item.icon}</div>
+              <span style={{
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '0.62rem', letterSpacing: '0.08em', textTransform: 'uppercase',
+                color: '#00D9C0', background: 'rgba(0,217,192,0.06)',
+                border: '1px solid rgba(0,217,192,0.15)',
+                padding: '0.25rem 0.6rem', borderRadius: '2px',
+              }}>{item.metric}</span>
+            </div>
+            <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: '#F0F4F8', marginBottom: '0.6rem', letterSpacing: '-0.02em' }}>{item.title}</h3>
+            <p style={{ color: '#8899AA', fontSize: '0.875rem', lineHeight: 1.7 }}>{item.body}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
