@@ -20,6 +20,47 @@ export default function HeroSection() {
     return () => window.removeEventListener('mousemove', handleMove);
   }, []);
 
+  const renderCTAs = (className: string) => (
+    <div className={`cta-container ${className}`} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: className.includes('mobile') ? 'center' : 'flex-start', marginTop: className.includes('mobile') ? '2rem' : '0' }}>
+      <a href="/resume.pdf" download="Ajay_Medidhi_Resume.pdf" target="_blank" rel="noreferrer"
+        className="cta-primary" style={{
+        display: 'inline-flex', alignItems: 'center', justifyItems: 'center', gap: '0.6rem',
+        background: COLORS.accent, color: COLORS.bg,
+        padding: '0.85rem 2rem', borderRadius: '8px',
+        fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.02em',
+        textDecoration: 'none', transition: 'all 0.2s',
+        boxShadow: `0 4px 14px ${COLORS.accent}40`,
+      }}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </a>
+      <a href="https://linkedin.com/in/ajaymedidhi" target="_blank" rel="noreferrer"
+        className="cta-secondary" style={{
+        display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+        background: 'transparent', color: COLORS.textPrimary,
+        padding: '0.85rem 2rem', borderRadius: '8px',
+        fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.01em',
+        textDecoration: 'none', transition: 'all 0.2s',
+        border: '1px solid rgba(255,255,255,0.15)',
+      }}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://www.youtube.com/@ajayverse09" target="_blank" rel="noreferrer"
+        className="cta-secondary" style={{
+        display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+        background: 'transparent', color: COLORS.textPrimary,
+        padding: '0.85rem 2rem', borderRadius: '8px',
+        fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.01em',
+        textDecoration: 'none', transition: 'all 0.2s',
+        border: '1px solid rgba(255,255,255,0.15)',
+      }}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill={COLORS.bg}/></svg>
+        AjayVerse
+      </a>
+    </div>
+  );
+
   return (
     <section id="hero" data-screen-label="Hero" style={{
       minHeight: '100vh',
@@ -99,44 +140,7 @@ export default function HeroSection() {
             Building scalable systems with Angular, Node.js & Google Cloud. Focused on performance, reliability, and real-world impact.
           </p>
 
-          <div className="cta-container" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
-            <a href="/resume.pdf" download="Ajay_Medidhi_Resume.pdf" target="_blank" rel="noreferrer"
-              className="cta-primary" style={{
-              display: 'inline-flex', alignItems: 'center', justifyItems: 'center', gap: '0.6rem',
-              background: COLORS.accent, color: COLORS.bg,
-              padding: '0.85rem 2rem', borderRadius: '8px',
-              fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.02em',
-              textDecoration: 'none', transition: 'all 0.2s',
-              boxShadow: `0 4px 14px ${COLORS.accent}40`,
-            }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download Resume
-            </a>
-            <a href="https://linkedin.com/in/ajaymedidhi" target="_blank" rel="noreferrer"
-              className="cta-secondary" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
-              background: 'transparent', color: COLORS.textPrimary,
-              padding: '0.85rem 2rem', borderRadius: '8px',
-              fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.01em',
-              textDecoration: 'none', transition: 'all 0.2s',
-              border: '1px solid rgba(255,255,255,0.15)',
-            }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-            <a href="https://www.youtube.com/@ajayverse09" target="_blank" rel="noreferrer"
-              className="cta-secondary" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
-              background: 'transparent', color: COLORS.textPrimary,
-              padding: '0.85rem 2rem', borderRadius: '8px',
-              fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.01em',
-              textDecoration: 'none', transition: 'all 0.2s',
-              border: '1px solid rgba(255,255,255,0.15)',
-            }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill={COLORS.bg}/></svg>
-              AjayVerse
-            </a>
-          </div>
+          {renderCTAs('desktop-only-cta')}
         </div>
 
         <div className="hero-image" style={{
@@ -197,6 +201,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
+        {renderCTAs('mobile-only-cta')}
       </div>
 
       <div style={{
