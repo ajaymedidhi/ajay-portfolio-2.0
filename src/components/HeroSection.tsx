@@ -31,7 +31,7 @@ export default function HeroSection() {
 
       <div style={{
         display: 'flex', flexDirection: 'row', alignItems: 'center',
-        justifyContent: 'space-between', gap: '4rem', width: '100%',
+        justifyContent: 'space-between', gap: '2.5rem', width: '100%',
         position: 'relative', zIndex: 1,
       }} className="hero-inner">
         <div className="hero-text" style={{ flex: '1 1 0', minWidth: 0 }}>
@@ -60,7 +60,7 @@ export default function HeroSection() {
 
           <h1 style={{
             fontFamily: 'Syne, sans-serif', fontWeight: 800,
-            fontSize: 'clamp(2.5rem, 5.5vw, 4.8rem)',
+            fontSize: 'clamp(2.8rem, 6.5vw, 5.5rem)',
             lineHeight: 0.95, letterSpacing: '-0.04em',
             color: '#F0F4F8', margin: '0 0 0.6rem 0',
           }}>
@@ -73,7 +73,7 @@ export default function HeroSection() {
             }}>Developer</span>
             <span style={{
               display: 'block',
-              fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+              fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
               marginTop: '0.8rem',
               color: '#C8D6E5',
               fontWeight: 700,
