@@ -31,7 +31,7 @@ export default function HeroSection() {
 
       <div style={{
         display: 'flex', flexDirection: 'row', alignItems: 'center',
-        justifyContent: 'space-between', gap: '2.5rem', width: '100%',
+        justifyContent: 'space-between', gap: '4rem', width: '100%',
         position: 'relative', zIndex: 1,
       }} className="hero-inner">
         <div className="hero-text" style={{ flex: '1 1 0', minWidth: 0 }}>
@@ -60,9 +60,10 @@ export default function HeroSection() {
 
           <h1 style={{
             fontFamily: 'Syne, sans-serif', fontWeight: 800,
-            fontSize: 'clamp(2.8rem, 6.5vw, 5.5rem)',
+            fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)',
             lineHeight: 0.95, letterSpacing: '-0.04em',
             color: '#F0F4F8', margin: '0 0 0.6rem 0',
+            whiteSpace: 'nowrap'
           }}>
             Full Stack<br />
             <span style={{
@@ -71,16 +72,18 @@ export default function HeroSection() {
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}>Developer</span>
-            <span style={{
-              display: 'block',
-              fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
-              marginTop: '0.8rem',
-              color: '#C8D6E5',
-              fontWeight: 700,
-            }}>
-              GCP <span style={{color: '#00D9C0'}}>·</span> Gen AI
-            </span>
           </h1>
+          
+          <div style={{
+            fontSize: '1.25rem',
+            color: '#00D9C0',
+            fontWeight: 700,
+            fontFamily: 'Syne, sans-serif',
+            marginBottom: '1rem',
+            letterSpacing: '0.02em',
+          }}>
+            GCP <span style={{ color: '#8899AA' }}>·</span> Gen AI
+          </div>
 
           <p style={{
             fontSize: '1.05rem', lineHeight: 1.75,
@@ -132,7 +135,7 @@ export default function HeroSection() {
 
         <div className="hero-image" style={{
           flex: '0 0 320px', display: 'flex', justifyContent: 'center', alignItems: 'center',
-          position: 'relative',
+          position: 'relative', zIndex: 10,
         }}>
           <div style={{ position: 'relative', width: '290px', height: '340px' }}>
             <div style={{
