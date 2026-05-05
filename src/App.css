@@ -91,7 +91,7 @@ main { display: flex; flex-direction: column; gap: 6rem; padding: 0 0 4rem; }
 .stat-row:hover { border-color: rgba(255,255,255,0.12) !important; }
 
 @media (max-width: 900px) {
-  .hero-inner { flex-direction: column !important; gap: 3.5rem !important; padding-top: 1rem; }
+  .hero-inner { flex-direction: column !important; gap: 1.5rem !important; padding-top: 0; }
   .hero-image { flex: 0 0 auto !important; width: 280px !important; margin: 0 auto; }
   .hero-image > div { width: 280px !important; height: 320px !important; }
   .hero-text { text-align: left; }

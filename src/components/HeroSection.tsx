@@ -21,7 +21,7 @@ export default function HeroSection() {
   }, []);
 
   const renderCTAs = (className: string) => (
-    <div className={`cta-container ${className}`} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: className.includes('mobile') ? 'center' : 'flex-start', marginTop: className.includes('mobile') ? '2rem' : '0' }}>
+    <div className={`cta-container ${className}`} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: className.includes('mobile') ? 'center' : 'flex-start', marginTop: className.includes('mobile') ? '1rem' : '0' }}>
       <a href="/resume.pdf" download="Ajay_Medidhi_Resume.pdf" target="_blank" rel="noreferrer"
         className="cta-primary" style={{
         display: 'inline-flex', alignItems: 'center', justifyItems: 'center', gap: '0.6rem',
@@ -81,7 +81,7 @@ export default function HeroSection() {
         position: 'relative', zIndex: 1,
       }} className="hero-inner">
         <div className="hero-text" style={{ flex: '1.2 1 0', minWidth: 0 }}>
-          <div style={{ marginBottom: '1.75rem' }}>
+          <div style={{ marginBottom: '1rem' }}>
             <span style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
               border: '1px solid rgba(0,217,192,0.2)',
@@ -135,7 +135,7 @@ export default function HeroSection() {
           <p style={{
             fontSize: '1.05rem', lineHeight: 1.75,
             color: COLORS.textSecondary, maxWidth: '460px',
-            marginBottom: '2rem', marginTop: '-0.5rem', fontWeight: 400,
+            marginBottom: '1rem', marginTop: '-0.5rem', fontWeight: 400,
           }}>
             Building scalable systems with Angular, Node.js & Google Cloud. Focused on performance, reliability, and real-world impact.
           </p>
