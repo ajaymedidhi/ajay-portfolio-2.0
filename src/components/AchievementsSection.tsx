@@ -2,7 +2,7 @@ import SectionHeader from './SectionHeader';
 
 export default function AchievementsSection() {
   const certs = [
-    { text: 'Google Associate Data Practitioner certified', tag: 'Cloud & Data' },
+    { text: 'Google Cloud Associate Cloud Engineer certified', tag: 'GCP' },
     { text: 'Google Generative AI Leader certified', tag: 'AI / Leadership' },
     { text: 'McKinsey Forward Fellow', tag: 'Leadership' },
   ];

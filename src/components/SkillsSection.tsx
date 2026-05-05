@@ -11,8 +11,8 @@ export default function SkillsSection() {
     {
       title: 'Frontend Architecture', accent: '#00D9C0',
       skills: [
-        { name: 'Angular', level: 92, tag: 'Advanced' },
-        { name: 'React', level: 88, tag: 'Advanced' },
+        { name: 'Angular', level: 92, tag: 'Production · 1yr' },
+        { name: 'React', level: 88, tag: 'Production · 8mo' },
         { name: 'Tailwind CSS', level: 90, tag: 'Advanced' },
         { name: 'TypeScript', level: 85, tag: 'Advanced' },
       ],
@@ -20,7 +20,7 @@ export default function SkillsSection() {
     {
       title: 'Backend Engineering', accent: '#4A9EFF',
       skills: [
-        { name: 'Node.js', level: 88, tag: 'Advanced' },
+        { name: 'Node.js', level: 88, tag: 'Production · 1yr' },
         { name: 'Express', level: 85, tag: 'Advanced' },
         { name: 'REST APIs', level: 92, tag: 'Advanced' },
       ],
@@ -28,15 +28,15 @@ export default function SkillsSection() {
     {
       title: 'Data & Databases', accent: '#00D9C0',
       skills: [
-        { name: 'BigQuery', level: 85, tag: 'Advanced' },
+        { name: 'BigQuery', level: 85, tag: 'Production · 1yr' },
         { name: 'Spanner', level: 70, tag: 'Intermediate' },
-        { name: 'MongoDB', level: 82, tag: 'Advanced' },
+        { name: 'MongoDB', level: 82, tag: 'Projects · 8mo' },
       ],
     },
     {
       title: 'Infrastructure & Tools', accent: '#4A9EFF',
       skills: [
-        { name: 'Google Cloud Platform', level: 75, tag: 'Intermediate' },
+        { name: 'Google Cloud Platform', level: 75, tag: 'Certified · 1yr' },
         { name: 'Git', level: 90, tag: 'Advanced' },
         { name: 'CI/CD Pipelines', level: 72, tag: 'Intermediate' },
       ],
@@ -67,19 +67,11 @@ export default function SkillsSection() {
                       <span style={{
                         fontFamily: 'JetBrains Mono, monospace', fontSize: '0.58rem',
                         letterSpacing: '0.08em', textTransform: 'uppercase',
-                        color: skill.tag === 'Advanced' ? cat.accent : '#8899AA',
-                        border: `1px solid ${skill.tag === 'Advanced' ? cat.accent + '35' : 'rgba(255,255,255,0.07)'}`,
-                        padding: '0.15rem 0.45rem', borderRadius: '3px',
+                        color: cat.accent,
+                        border: `1px solid ${cat.accent + '35'}`,
+                        padding: '0.2rem 0.6rem', borderRadius: '4px', background: `${cat.accent}0A`
                       }}>{skill.tag}</span>
-                      <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#4A5568', minWidth: '2.5rem', textAlign: 'right' }}>{skill.level}%</span>
                     </div>
-                  </div>
-                  <div style={{ height: '3px', background: 'rgba(255,255,255,0.05)', borderRadius: '2px', overflow: 'hidden' }}>
-                    <div style={{
-                      height: '100%', width: `${skill.level}%`,
-                      background: `linear-gradient(90deg, ${cat.accent}, ${cat.accent === '#00D9C0' ? '#4A9EFF' : '#00D9C0'})`,
-                      borderRadius: '2px',
-                    }} />
                   </div>
                 </div>
               ))}

@@ -10,6 +10,7 @@ export default function Nav({ scrolled, menuOpen, setMenuOpen }: NavProps) {
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Gen AI', href: '#ai-engineering' },
     { name: 'Contact', href: '#contact' },
   ];
 

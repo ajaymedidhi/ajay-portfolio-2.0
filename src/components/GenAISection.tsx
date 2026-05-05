@@ -1,11 +1,11 @@
 import SectionHeader from './SectionHeader';
 
 export default function GenAISection() {
-  const tools = ['OpenAI (GPT)', 'Google Gemini', 'Vertex AI', 'Prompt Engineering', 'LangChain', 'GitHub Copilot', 'Cursor', 'AI Automations'];
+  const tools = ['OpenAI (GPT)', 'Google Gemini', 'Vertex AI', 'Prompt Engineering', 'LangChain', 'LlamaIndex', 'Firestore', 'GitHub Copilot', 'Cursor', 'AI Automations'];
   const capabilities = [
-    'Build active AI-powered features utilizing modern LLMs.',
-    'Integrate advanced AI APIs natively into MERN architecture.',
-    'Leverage deep prompt engineering for rigid data structuring.',
+    'Integrated LangChain + Vertex AI into SkillSeed platform for intelligent content retrieval.',
+    'Built AI-assisted dev workflows using GitHub Copilot and Cursor — cutting boilerplate time by ~40%.',
+    'Engineered prompt pipelines for structured data extraction from unstructured student inputs.',
   ];
   const impacts = [
     'Accelerate full-stack development cycles and reduce bug resolution times.',

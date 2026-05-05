@@ -18,7 +18,7 @@ export default function ExperienceSection() {
   const experiences: Experience[] = [
     {
       company: 'Accenture',
-      role: 'Associate Software Developer',
+      role: 'Lead Full Stack Developer',
       period: 'Oct 2024 – Present',
       keyImpact: '60% Perf Boost',
       summary: 'Worked on enterprise-scale backend systems focusing on performance, data engineering, and production reliability.',
@@ -44,9 +44,13 @@ export default function ExperienceSection() {
       period: 'Dec 2023 – June 2024',
       keyImpact: '40% Engagement Spike',
       summary: 'Developed interactive and highly scalable React applications, boosting overall user engagement metrics by 40%. Refactored legacy system endpoints and optimized server architecture to yield a 30% speed increase in API responses. Orchestrated the full-stack deployment of multiple connected applications seamlessly into live cloud environments.',
-      bullets: [],
+      bullets: [
+        'Built dynamic React dashboards with Redux state management, improving user engagement by 40%.',
+        'Refactored 12 legacy Express endpoints reducing average API response time by 30%.',
+        'Deployed full-stack applications to cloud environments handling CI/CD pipeline configuration end-to-end.',
+      ],
       extended: [],
-      tech: ['React', 'Node.js', 'REST APIs', 'Cloud Deployment'],
+      tech: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB', 'Cloud Deploy'],
     },
   ];
 

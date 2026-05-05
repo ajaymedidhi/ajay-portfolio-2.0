@@ -87,7 +87,7 @@ export default function ContactSection() {
       </div>
       <div style={{ textAlign: 'center', marginTop: '3rem', paddingBottom: '2rem' }}>
         <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#4A5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-          Designed & engineered by Ajay Medidhi — Built with React, Tailwind v4, Framer Motion.
+          Designed & engineered by Ajay Medidhi — Built with React, Vite, TypeScript.
         </p>
       </div>
     </section>

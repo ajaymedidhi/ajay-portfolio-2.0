@@ -51,7 +51,7 @@ export default function AboutSection() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {[
-            { label: 'Current Role', value: 'Associate Software Developer', sub: 'Accenture, Hyderabad' },
+            { label: 'Current Role', value: 'Lead Full Stack Developer', sub: 'Accenture, Hyderabad' },
             { label: 'Building', value: 'SkillSeed', sub: 'Ed-tech startup for students' },
             { label: 'Creating', value: 'AjayVerse', sub: 'YouTube channel — building in public' },
             { label: 'Background', value: 'Aeronautical Engineering', sub: 'Precision & system thinking' },

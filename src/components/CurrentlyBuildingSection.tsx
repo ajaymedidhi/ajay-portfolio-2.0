@@ -24,8 +24,11 @@ export default function CurrentlyBuildingSection() {
       featured: true,
       title: 'SkillSeed Edu-Tech Platform',
       href: 'https://skillseed-edu.netlify.app/',
-      description: 'Students in Class 11–12 often lack exposure to modern digital career paths. Engineering an interactive educational platform to integrate robust Creator & Digital Paths directly alongside traditional studies.',
-      bullets: ['Dynamic UI cards mapping career tracks', 'Highly engaging student retention interface'],
+      description: 'Building an ed-tech platform for Class 11–12 students in rural communities — mapping AI literacy, digital career paths, and NEP-aligned skills alongside traditional studies. MVP live at skillseed-edu.netlify.app.',
+      bullets: [
+        'React + Node.js + Firestore stack — MVP deployed',
+        'Targeting 500 students across Hyderabad pilot schools'
+      ],
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
       ),
