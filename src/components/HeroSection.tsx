@@ -31,10 +31,10 @@ export default function HeroSection() {
 
       <div style={{
         display: 'flex', flexDirection: 'row', alignItems: 'center',
-        justifyContent: 'space-between', gap: '4rem', width: '100%',
+        justifyContent: 'space-between', gap: '2rem', width: '100%',
         position: 'relative', zIndex: 1,
       }} className="hero-inner">
-        <div className="hero-text" style={{ flex: '1 1 0', minWidth: 0 }}>
+        <div className="hero-text" style={{ flex: '1.2 1 0', minWidth: 0 }}>
           <div style={{ marginBottom: '1.75rem' }}>
             <span style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
@@ -60,7 +60,7 @@ export default function HeroSection() {
 
           <h1 style={{
             fontFamily: 'Syne, sans-serif', fontWeight: 800,
-            fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)',
+            fontSize: 'clamp(2.8rem, 6.5vw, 5.5rem)',
             lineHeight: 0.95, letterSpacing: '-0.04em',
             color: '#F0F4F8', margin: '0 0 0.6rem 0',
             whiteSpace: 'nowrap'
@@ -75,11 +75,11 @@ export default function HeroSection() {
           </h1>
           
           <div style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)',
             color: '#00D9C0',
             fontWeight: 700,
             fontFamily: 'Syne, sans-serif',
-            marginBottom: '1rem',
+            marginBottom: '1.2rem',
             letterSpacing: '0.02em',
           }}>
             GCP <span style={{ color: '#8899AA' }}>·</span> Gen AI
