@@ -48,6 +48,7 @@ export default function HeroSection() {
               color: 'rgba(0,217,192,0.9)',
               padding: '0.45rem 1rem', borderRadius: '100px',
               fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.03em',
+              flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center'
             }}>
               <span style={{
                 width: '7px', height: '7px', borderRadius: '50%',
@@ -65,10 +66,10 @@ export default function HeroSection() {
 
           <h1 style={{
             fontFamily: 'Syne, sans-serif', fontWeight: 800,
-            fontSize: 'clamp(2.8rem, 6.5vw, 5.5rem)',
+            fontSize: 'clamp(2.3rem, 10vw, 5.5rem)',
             lineHeight: 0.95, letterSpacing: '-0.04em',
             color: COLORS.textPrimary, margin: '0 0 0.6rem 0',
-            whiteSpace: 'nowrap'
+            whiteSpace: 'normal', wordBreak: 'keep-all'
           }}>
             Full Stack<br />
             <span style={{

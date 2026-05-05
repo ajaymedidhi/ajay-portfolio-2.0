@@ -107,6 +107,7 @@ main { display: flex; flex-direction: column; gap: 6rem; padding: 0 0 4rem; }
   .desktop-nav { display: none !important; }
   .mobile-menu-btn { display: flex !important; }
   .page-content { padding: 0 1.25rem; }
+  .section-alt { margin: 0 -1.25rem !important; padding: 2.5rem 1.25rem !important; border-radius: 0; }
   main { gap: 5rem; }
 }
 
