@@ -56,7 +56,7 @@ export default function ExperienceSection() {
 
   return (
     <section id="experience" style={{ scrollMarginTop: '5rem' }}>
-      <SectionHeader num="02" title="Professional Experience" />
+      <SectionHeader num="02" title="Professional Experience" subtitle="1 Year 8 Months of building production systems." />
       <div style={{ position: 'relative', paddingLeft: '2rem' }}>
         <div style={{ position: 'absolute', left: 0, top: '0.5rem', bottom: 0, width: '1px', background: 'rgba(255,255,255,0.06)' }} />
         {experiences.map((exp, idx) => (
