@@ -54,9 +54,24 @@ export default function ExperienceSection() {
     },
   ];
 
+  const getExperienceString = () => {
+    const startDate = new Date(2024, 9); // October 2024
+    const now = new Date();
+    const totalMonths = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth()) + 1;
+    
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+    
+    let str = '';
+    if (years > 0) str += `${years} Year${years > 1 ? 's' : ''} `;
+    if (months > 0) str += `${months} Month${months > 1 ? 's' : ''}`;
+    
+    return str.trim() || '1 Year';
+  };
+
   return (
     <section id="experience" style={{ scrollMarginTop: '5rem' }}>
-      <SectionHeader num="02" title="Professional Experience" subtitle="1 Year 8 Months of building production systems." />
+      <SectionHeader num="02" title="Professional Experience" subtitle={`${getExperienceString()} of building production systems.`} />
       <div style={{ position: 'relative', paddingLeft: '2rem' }}>
         <div style={{ position: 'absolute', left: 0, top: '0.5rem', bottom: 0, width: '1px', background: 'rgba(255,255,255,0.06)' }} />
         {experiences.map((exp, idx) => (
