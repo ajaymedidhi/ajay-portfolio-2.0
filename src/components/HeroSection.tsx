@@ -132,7 +132,7 @@ export default function HeroSection() {
             GCP <span style={{ color: COLORS.textSecondary }}>·</span> Generative AI
           </div>
 
-          <p style={{
+          <p className="mobile-hidden" style={{
             fontSize: '1.05rem', lineHeight: 1.75,
             color: COLORS.textSecondary, maxWidth: '460px',
             marginBottom: '1rem', marginTop: '-0.5rem', fontWeight: 400,
