@@ -63,7 +63,7 @@ export default function HeroSection() {
 
   return (
     <section id="hero" data-screen-label="Hero" style={{
-      minHeight: '100vh',
+      minHeight: '100dvh',
       display: 'flex', flexDirection: 'column', justifyContent: 'center',
       paddingTop: '80px', paddingBottom: '1rem',
       position: 'relative', overflow: 'hidden',
