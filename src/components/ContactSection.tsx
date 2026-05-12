@@ -14,7 +14,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" style={{ scrollMarginTop: '5rem' }}>
-      <div style={{
+      <div className="contact-box" style={{
         background: COLORS.surface, border: '1px solid rgba(255,255,255,0.06)',
         borderRadius: '6px', padding: 'clamp(2.5rem, 6vw, 5rem)',
         position: 'relative', overflow: 'hidden', textAlign: 'center',
@@ -64,7 +64,7 @@ export default function ContactSection() {
               click to copy
             </div>
           </div>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}>
+          <div className="contact-ctas" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}>
             <a href={`mailto:${email}`} style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
               background: COLORS.accent, color: COLORS.bg,
