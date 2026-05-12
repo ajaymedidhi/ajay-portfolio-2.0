@@ -91,10 +91,14 @@ main { display: flex; flex-direction: column; gap: 6rem; padding: 0 0 4rem; }
 .stat-row:hover { border-color: rgba(255,255,255,0.12) !important; }
 
 @media (max-width: 900px) {
-  .hero-section { min-height: auto !important; padding-top: 100px !important; padding-bottom: 2rem !important; display: flex !important; }
-  .hero-inner { flex-direction: column !important; gap: 2.5rem !important; padding-top: 0; display: flex; justify-content: flex-start !important; }
-  .hero-image { flex: 0 0 auto !important; width: 260px !important; margin: 0 auto; }
-  .hero-image > div { width: 260px !important; height: 300px !important; }
+  .hero-section { min-height: auto !important; padding-top: 100px !important; padding-bottom: 2rem !important; display: block !important; }
+  .hero-inner { flex-direction: column !important; gap: 2.5rem !important; padding-top: 0; display: flex; }
+  .hero-image { flex: 0 0 auto !important; width: 100% !important; max-width: 420px; margin: 0 auto; }
+  .hero-image-wrapper { width: 100% !important; height: auto !important; aspect-ratio: 4/5 !important; border-radius: 16px !important; }
+  .hero-image-inner { border: 1px solid rgba(255,255,255,0.05) !important; border-radius: 16px !important; transform: none !important; width: 100% !important; height: 100% !important; }
+  .decorative-corner, .hero-glow { display: none !important; }
+  .impact-badge { bottom: 1rem !important; right: 1rem !important; }
+  .company-badge { top: 1rem !important; left: 1rem !important; }
   .full-width-mobile { width: 100% !important; justify-content: center !important; }
   .mobile-col { flex-direction: column !important; width: 100% !important; align-items: stretch !important; }
   .hero-text { text-align: left; }
