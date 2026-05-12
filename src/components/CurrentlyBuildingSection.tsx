@@ -92,8 +92,14 @@ export default function CurrentlyBuildingSection() {
             </div>
             <div>
               <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: '#F0F4F8', marginBottom: '0.6rem', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                {card.title}
-                {card.href && <span style={{ color: card.tagColor, fontSize: '0.8rem' }}>↗</span>}
+                {card.href ? (
+                  <a href={card.href} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = card.tagColor)}
+                    onMouseLeave={e => (e.currentTarget.style.color = '#F0F4F8')}>
+                    {card.title}
+                    <span style={{ fontSize: '0.8rem' }}>↗</span>
+                  </a>
+                ) : card.title}
               </h3>
               {card.description && (
                 <p style={{ color: '#8899AA', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: card.bullets.length ? '0.75rem' : 0 }}>{card.description}</p>

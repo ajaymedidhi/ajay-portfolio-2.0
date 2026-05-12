@@ -10,7 +10,8 @@ export default function Nav({ scrolled, menuOpen, setMenuOpen }: NavProps) {
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Gen AI', href: '#ai-engineering' },
+    { name: 'Building', href: '#currently-building' },
+    { name: 'Achievements', href: '#achievements' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -54,7 +55,7 @@ export default function Nav({ scrolled, menuOpen, setMenuOpen }: NavProps) {
         <button onClick={() => setMenuOpen(!menuOpen)} className="mobile-menu-btn" style={{
           background: 'none', border: 'none', cursor: 'pointer',
           color: '#F0F4F8', padding: '8px', display: 'none',
-        }} aria-label="Menu">
+        }} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} aria-controls="mobile-drawer">
           {menuOpen ? (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           ) : (
@@ -63,7 +64,7 @@ export default function Nav({ scrolled, menuOpen, setMenuOpen }: NavProps) {
         </button>
       </nav>
 
-      <div style={{
+      <div id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu" style={{
         position: 'fixed', top: 0, right: 0, bottom: 0, width: '280px',
         background: '#0E1420', borderLeft: '1px solid rgba(255,255,255,0.08)',
         zIndex: 100,

@@ -19,11 +19,14 @@ export default function AboutSection() {
       }} className="about-grid">
         <div>
           <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#C8D6E5', fontWeight: 400, marginBottom: '1.5rem' }}>
-            Results-driven Full Stack Developer building high-performance applications with{' '}
-            <strong style={{ color: '#F0F4F8', fontWeight: 600 }}>Angular, Node.js, and Google Cloud</strong>. Passionate about creating technical solutions that drive real-world impact and reliability at scale.
+            Full Stack Developer at{' '}
+            <strong style={{ color: '#F0F4F8', fontWeight: 600 }}>Accenture</strong>, building enterprise systems with{' '}
+            <strong style={{ color: '#F0F4F8', fontWeight: 600 }}>Angular, Node.js, and Google Cloud</strong>. I care about one thing above all — shipping software that actually works at scale and delivers measurable impact.
           </p>
           <button
             onClick={() => setExpanded(!expanded)}
+            aria-expanded={expanded}
+            aria-controls="about-expanded"
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
               color: '#00D9C0', fontFamily: 'DM Sans, sans-serif',
@@ -34,7 +37,7 @@ export default function AboutSection() {
           >
             {expanded ? '↑ Collapse' : '↓ Read Full Journey: From Aircraft to Algorithms'}
           </button>
-          <div style={{
+          <div id="about-expanded" style={{
             maxHeight: expanded ? '800px' : '0',
             overflow: 'hidden',
             transition: 'max-height 0.5s cubic-bezier(0.4,0,0.2,1)',

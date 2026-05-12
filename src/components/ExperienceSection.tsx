@@ -113,16 +113,20 @@ export default function ExperienceSection() {
               )}
               {exp.extended.length > 0 && (
                 <>
-                  <button onClick={() => setExpanded(expanded === idx ? null : idx)} style={{
-                    background: 'none', border: 'none', cursor: 'pointer',
-                    color: '#00D9C0', fontFamily: 'JetBrains Mono, monospace',
-                    fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase',
-                    display: 'flex', alignItems: 'center', gap: '0.4rem', padding: 0,
-                    marginBottom: '0.5rem',
-                  }}>
+                  <button
+                    onClick={() => setExpanded(expanded === idx ? null : idx)}
+                    aria-expanded={expanded === idx}
+                    aria-controls={`exp-contributions-${idx}`}
+                    style={{
+                      background: 'none', border: 'none', cursor: 'pointer',
+                      color: '#00D9C0', fontFamily: 'JetBrains Mono, monospace',
+                      fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase',
+                      display: 'flex', alignItems: 'center', gap: '0.4rem', padding: 0,
+                      marginBottom: '0.5rem',
+                    }}>
                     {expanded === idx ? '↑ Hide' : '↓ View'} Key Contributions
                   </button>
-                  <div style={{
+                  <div id={`exp-contributions-${idx}`} style={{
                     maxHeight: expanded === idx ? '600px' : '0',
                     overflow: 'hidden',
                     transition: 'max-height 0.5s cubic-bezier(0.4,0,0.2,1)',

@@ -74,6 +74,7 @@ main { display: flex; flex-direction: column; gap: 6rem; padding: 0 0 4rem; }
 .icon-btn:hover { border-color: rgba(0,217,192,0.3) !important; color: var(--accent) !important; }
 .scroll-top-btn:hover { background: rgba(0,217,192,0.1) !important; }
 .email-btn:hover { border-color: rgba(0,217,192,0.3) !important; }
+.youtube-footer-link:hover { color: #FF4444 !important; }
 .tool-tag:hover { border-color: rgba(74,158,255,0.3) !important; color: #F0F4F8 !important; }
 
 .exp-card { border-radius: 12px !important; }
@@ -109,6 +110,7 @@ main { display: flex; flex-direction: column; gap: 6rem; padding: 0 0 4rem; }
   .bring-grid { grid-template-columns: 1fr !important; }
   .contrib-grid { grid-template-columns: 1fr !important; }
   .skills-grid { grid-template-columns: 1fr !important; }
+  .ai-card-grid { grid-template-columns: 1fr !important; }
   .desktop-nav { display: none !important; }
   .mobile-menu-btn { display: flex !important; }
   .desktop-only-cta { display: none !important; }
