@@ -99,8 +99,6 @@ main { display: flex; flex-direction: column; gap: 6rem; padding: 0 0 4rem; }
   .decorative-corner, .hero-glow { display: none !important; }
   .impact-badge { bottom: 1rem !important; right: 1rem !important; }
   .company-badge { top: 1rem !important; left: 1rem !important; }
-  .full-width-mobile { width: 100% !important; justify-content: center !important; }
-  .mobile-col { flex-direction: column !important; width: 100% !important; align-items: stretch !important; }
   .hero-text { text-align: left; }
   .hero-text .cta-container { justify-content: flex-start !important; }
   .about-grid { grid-template-columns: 1fr !important; }
