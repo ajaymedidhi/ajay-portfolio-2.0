@@ -21,9 +21,9 @@ export default function HeroSection() {
   }, []);
 
   const renderCTAs = (className: string) => (
-    <div className={`cta-container ${className}`} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: className.includes('mobile') ? 'center' : 'flex-start', marginTop: className.includes('mobile') ? '1rem' : '0' }}>
+    <div className={`cta-container ${className} ${className.includes('mobile') ? 'mobile-col' : ''}`} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: className.includes('mobile') ? 'center' : 'flex-start', marginTop: className.includes('mobile') ? '1.5rem' : '0' }}>
       <a href="/resume.pdf" download="Ajay_Medidhi_Resume.pdf" target="_blank" rel="noreferrer"
-        className="cta-primary" style={{
+        className="cta-primary full-width-mobile" style={{
         display: 'inline-flex', alignItems: 'center', justifyItems: 'center', gap: '0.6rem',
         background: COLORS.accent, color: COLORS.bg,
         padding: '0.85rem 2rem', borderRadius: '8px',
@@ -35,7 +35,7 @@ export default function HeroSection() {
         Download Resume
       </a>
       <a href="https://linkedin.com/in/ajaymedidhi" target="_blank" rel="noreferrer"
-        className="cta-secondary" style={{
+        className="cta-secondary full-width-mobile" style={{
         display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
         background: 'transparent', color: COLORS.textPrimary,
         padding: '0.85rem 2rem', borderRadius: '8px',
@@ -47,7 +47,7 @@ export default function HeroSection() {
         LinkedIn
       </a>
       <a href="https://www.youtube.com/@ajayverse09" target="_blank" rel="noreferrer"
-        className="cta-secondary" style={{
+        className="cta-secondary full-width-mobile" style={{
         display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
         background: 'transparent', color: COLORS.textPrimary,
         padding: '0.85rem 2rem', borderRadius: '8px',
@@ -62,7 +62,7 @@ export default function HeroSection() {
   );
 
   return (
-    <section id="hero" data-screen-label="Hero" style={{
+    <section id="hero" className="hero-section" data-screen-label="Hero" style={{
       minHeight: '100dvh',
       display: 'flex', flexDirection: 'column', justifyContent: 'center',
       paddingTop: '80px', paddingBottom: '1rem',
@@ -81,8 +81,8 @@ export default function HeroSection() {
         position: 'relative', zIndex: 1,
       }} className="hero-inner">
         <div className="hero-text" style={{ flex: '1.2 1 0', minWidth: 0 }}>
-          <div style={{ marginBottom: '1rem' }}>
-            <span style={{
+          <div style={{ marginBottom: '1rem', width: '100%' }}>
+            <span className="full-width-mobile" style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
               border: '1px solid rgba(0,217,192,0.2)',
               background: 'rgba(0,217,192,0.05)',
